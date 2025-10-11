@@ -8,9 +8,7 @@ document.addEventListener("DOMContentLoaded", function() {
   // --- Sidebar toggle ---
   const sidebar = document.querySelector("[data-sidebar]");
   const sidebarBtn = document.querySelector("[data-sidebar-btn]");
-  if (sidebarBtn) {
-    sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); });
-  }
+  if (sidebarBtn) sidebarBtn.addEventListener("click", () => elementToggleFunc(sidebar));
 
   // --- Projects modal ---
   const projectItems = document.querySelectorAll("[data-project]");
@@ -21,6 +19,9 @@ document.addEventListener("DOMContentLoaded", function() {
   const modalImg = document.querySelector("[data-modal-img]");
   const modalTitle = document.querySelector("[data-modal-title]");
   const modalText = document.querySelector("[data-modal-text]");
+  const modalLinkBtn = document.getElementById("modalLinkBtn");
+
+  let currentProjectUrl = "";
 
   const projectModalFunc = function () {
     modalContainer.classList.toggle("active");
@@ -28,24 +29,44 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   projectItems.forEach(item => {
-    item.addEventListener("click", function (e) {
-      e.preventDefault();
-      const img = this.querySelector("[data-project-img]");
-      const title = this.querySelector("[data-project-title]");
-      const text = this.querySelector("[data-project-text]");
+    const projectUrl = item.dataset.projectLink;
+    const iconBox = item.querySelector(".project-item-icon-box");
+    const projectImg = item.querySelector("[data-project-img]");
 
-      if (img && title && text) {
-        modalImg.src = img.src;
-        modalImg.alt = img.alt;
-        modalTitle.innerHTML = title.innerHTML;
-        modalText.innerHTML = text.innerHTML;
+    // Click en icono abre modal
+    if(iconBox){
+      iconBox.addEventListener("click", function(e){
+        e.stopPropagation(); // evita que se abra la URL
+        const title = item.querySelector("[data-project-title]").innerHTML;
+        const text = item.querySelector("[data-project-text]").innerHTML;
+        const imgSrc = projectImg.src;
+        const imgAlt = projectImg.alt;
+
+        modalImg.src = imgSrc;
+        modalImg.alt = imgAlt;
+        modalTitle.innerHTML = title;
+        modalText.innerHTML = text;
+        currentProjectUrl = projectUrl;
         projectModalFunc();
-      }
+      });
+    }
+
+    // Click en todo el LI abre URL directamente
+    item.addEventListener("click", function(){
+      window.open(projectUrl, "_blank");
     });
   });
 
-  if (modalCloseBtn) modalCloseBtn.addEventListener("click", projectModalFunc);
-  if (overlay) overlay.addEventListener("click", projectModalFunc);
+  // Click en botón del modal abre URL
+  if(modalLinkBtn){
+    modalLinkBtn.addEventListener("click", () => {
+      if(currentProjectUrl) window.open(currentProjectUrl, "_blank");
+    });
+  }
+
+  // Cierre de modal
+  if(modalCloseBtn) modalCloseBtn.addEventListener("click", projectModalFunc);
+  if(overlay) overlay.addEventListener("click", projectModalFunc);
 
   // --- Contact Form ---
   const contactForm = document.getElementById('contactForm');
@@ -55,26 +76,23 @@ document.addEventListener("DOMContentLoaded", function() {
       document.getElementById('popupMessage').style.display = 'block';
       const formData = new FormData(event.target);
       fetch(event.target.action, {
-          method: 'POST',
-          body: formData,
+        method: 'POST',
+        body: formData,
       })
       .then(response => console.log('Form successfully submitted!', response))
       .catch(error => console.error('Error submitting form:', error));
     });
   }
 
-  // Form validation
+  // --- Form validation ---
   const form = document.querySelector("[data-form]");
   const formInputs = document.querySelectorAll("[data-form-input]");
   const formBtn = document.querySelector("[data-form-btn]");
 
   formInputs.forEach(input => {
     input.addEventListener("input", function () {
-      if (form.checkValidity()) {
-        formBtn.removeAttribute("disabled");
-      } else {
-        formBtn.setAttribute("disabled", "");
-      }
+      if (form.checkValidity()) formBtn.removeAttribute("disabled");
+      else formBtn.setAttribute("disabled", "");
     });
   });
 

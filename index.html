@@ -34,20 +34,20 @@
                         <div class="icon-box"> <ion-icon name="mail-outline"></ion-icon> </div>
                         <div class="contact-info">
                             <p class="contact-title">Email</p> <a href="mailto:daniel.lopez311997@gmail.com"
-                                class="contact-link">daniel.lopez311997@gmail.com</a>
+                                class="contact-link" target="_blank" rel="noopener noreferrer">daniel.lopez311997@gmail.com</a>
                         </div>
                     </li>
                     <li class="contact-item">
                         <div class="icon-box"> <ion-icon name="phone-portrait-outline"></ion-icon> </div>
                         <div class="contact-info">
-                            <p class="contact-title">Phone</p> <a href="https://wa.me/999067648" class="contact-link">+51 999 067 648 </a>
+                            <p class="contact-title">Phone</p> <a href="https://wa.me/999067648" class="contact-link" target="_blank" rel="noopener noreferrer">+51 999 067 648 </a>
                         </div>
                     </li>
                     <li class="contact-item">
                         <div class="icon-box"> <ion-icon name="logo-linkedin"></ion-icon> </div>
                         <div class="contact-info">
                             <p class="contact-title">LinkedIn</p> <a href="https://www.linkedin.com/in/daniel-adri%C3%A1n-lopez-zerpa-75566734a/"
-                                class="contact-link">Daniel Adrián López Zerpa</a>
+                                class="contact-link" target="_blank" rel="noopener noreferrer">Daniel Adrián López Zerpa</a>
                         </div>
                     </li>
                     <li class="contact-item">
@@ -315,7 +315,7 @@
                         </li>
                     </ul>
                 </section>
-            </article> <!-- - #Projects -->
+            </article> 
             <!-- - #Projects -->
             <article class="projects" data-page="projects">
                 <header>
@@ -326,61 +326,57 @@
 
                     <ul class="project-list">
                         <!-- Proyecto 1 -->
-                        <li class="project-item" data-project>
-                            <a href="#" target="_blank" rel="noopener noreferrer">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-                                    <img src="./assets/images/projects/project-1.jpg" alt="Proyecto 1" loading="lazy" data-project-img>
-                                </figure>
-                                <h3 class="project-title" data-project-title>Nombre Proyecto 1</h3>
-                                <p class="project-category" data-project-text>Descripción breve del proyecto 1</p>
-                            </a>
+                        <li class="project-item" data-project data-project-link="https://dashboard-design-murex.vercel.app/">
+                            <figure class="project-img">
+                                <div class="project-item-icon-box">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </div>
+                                <img src="./assets/images/imagen-dasboard.png" alt="Proyecto 1" loading="lazy" data-project-img>
+                            </figure>
+                            <h3 class="project-title" data-project-title>Dashboard Dinamico</h3>
+                            <p class="project-category" data-project-text>Proyecto de diseño de dashboard, practicando un prototipo aun sin responsive para móviles.</p>
                         </li>
 
                         <!-- Proyecto 2 -->
-                        <li class="project-item" data-project>
-                            <a href="#" target="_blank" rel="noopener noreferrer">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-                                    <img src="./assets/images/projects/project-2.jpg" alt="Proyecto 2" loading="lazy" data-project-img>
-                                </figure>
-                                <h3 class="project-title" data-project-title>Nombre Proyecto 2</h3>
-                                <p class="project-category" data-project-text>Descripción breve del proyecto 2</p>
-                            </a>
+                        <li class="project-item" data-project data-project-link="https://delorean31.github.io/LadingPage/">
+                            <figure class="project-img">
+                                <div class="project-item-icon-box">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </div>
+                                <img src="./assets/images/imagen-landing.png" alt="Proyecto 2" loading="lazy" data-project-img>
+                            </figure>
+                            <h3 class="project-title" data-project-title>LandingPage</h3>
+                            <p class="project-category" data-project-text>Proyecto de frontend utilizando HTML5 Y CSS con responsive para móviles, mejorando en cada proyecto.</p>
                         </li>
 
                         <!-- Proyecto 3 -->
-                        <li class="project-item" data-project>
-                            <a href="#" target="_blank" rel="noopener noreferrer">
-                                <figure class="project-img">
-                                    <div class="project-item-icon-box">
-                                        <ion-icon name="eye-outline"></ion-icon>
-                                    </div>
-                                    <img src="./assets/images/projects/project-3.jpg" alt="Proyecto 3" loading="lazy" data-project-img>
-                                </figure>
-                                <h3 class="project-title" data-project-title>Nombre Proyecto 3</h3>
-                                <p class="project-category" data-project-text>Descripción breve del proyecto 3</p>
-                            </a>
+                        <li class="project-item" data-project data-project-link="https://tienda-virtual-ten-brown.vercel.app/">
+                            <figure class="project-img">
+                                <div class="project-item-icon-box">
+                                    <ion-icon name="eye-outline"></ion-icon>
+                                </div>
+                                <img src="./assets/images/Tienda.png" alt="Proyecto 3" loading="lazy" data-project-img>
+                            </figure>
+                            <h3 class="project-title" data-project-title>Tienda Virtual</h3>
+                            <p class="project-category" data-project-text>Proyecto de diseño UI/UX, En este avance solo esta funcionando el OurStore, que se encuentra dentro de la opción Show by departments, darle click y veras el diseño de la tienda, Sí está implementado el responsive en móviles.</p>
                         </li>
                     </ul>
                 </section>
             </article>
 
-
-            <!-- Modal (puede estar al final de body) -->
+            <!-- Modal -->
             <div class="modal-container" data-modal-container>
                 <div class="modal">
                     <button class="modal-close-btn" data-modal-close-btn>&times;</button>
                     <img src="" alt="" data-modal-img>
                     <h3 data-modal-title></h3>
                     <p data-modal-text></p>
+                    <button id="modalLinkBtn">Ir al Proyecto</button>
                 </div>
                 <div class="overlay" data-overlay></div>
             </div>
+
+
             <!-- - #CONTACT -->
             <article class="contact" data-page="contact">
                 <header>
